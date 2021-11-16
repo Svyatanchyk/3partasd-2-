@@ -1,28 +1,13 @@
 let N = 12,
    ans;
-
 let tree = Array();
-
-
-
 function dfs(visit, node) {
    let num = 0,
       temp = 0;
-
-
    visit[node] = 1;
-
-
-
    for (let i = 0; i < tree[node].length; i++) {
       if (visit[tree[node][i]] == 0) {
-
-
          temp = dfs(visit, tree[node][i]);
-
-
-
-
          if (temp % 2 != 0)
             num += temp;
          else
@@ -31,22 +16,13 @@ function dfs(visit, node) {
    }
    return num + 1;
 }
-
-
-
 function minEdge(n) {
    let visit = Array(n + 2).fill(0);
    ans = 0;
-
    dfs(visit, 1);
-
    return ans;
 }
-
-
 let n = 10;
-
-
 for (let i = 0; i < n + 2; i++)
    tree.push(new Array());
 tree[1].push(3);
